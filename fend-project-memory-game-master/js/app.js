@@ -1,8 +1,20 @@
 /*
  * Create a list that holds all of your cards
  */
+let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
+ const cards = document.querySelectorAll('.deck-card');
+console.log(cards);
+
+ /**function card.open() {
+console.log('I was clicked!');
+console.log(this);
+ } */
 
 
+ 
+	cards.forEAch(card => card.addEventListener('click',deck.card.open )) 
+		console.log("hello, I-m a card!");
+	
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
