@@ -14,9 +14,9 @@ cardHTML .join('');
 console.log(cards); */
 
 
-/**  This has an error.
+/** 
 function generateCard(card) {
-    return '<li class="card"><i class= "fa $(card)"></i></li>';
+    return '<li class="card" data-card= "${card}"><i class= "fa $(card)"></i></li>';
 }
 */
 match = 0;
@@ -66,6 +66,18 @@ console.log('Open Cards:', openCards.length);
 
   
  if (openCards.length === 2) {
+     if (openCards[0]. dataset.card === openCards[1].dataset.card) {
+         openCards[0].classList.add('match');
+         openCards[0].classList.add('open');
+         openCards[0].classList.add('show');
+
+         openCards[0].classList.add('match');
+         openCards[0].classList.add('open');
+         openCards[0].classList.add('show');
+     }
+
+
+/** If there is no match, hide the cards */
     setTimeout(function() {
 openCards.forEach(function(card) {
     card.classList.remove('open', 'show');
