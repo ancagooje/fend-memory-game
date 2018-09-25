@@ -1,10 +1,26 @@
 /*
  * Create a list that holds all of your cards
- */
-let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
- const cards = document.querySelectorAll('.deck-card');
-console.log(cards);
+/* inspired by Mike Wales webinar at https://www.youtube.com/watch?v=_rUH-sEs68Y */
+function initGame() {
+    var deck = document.querySelector('.deck');
+    var cardHTML = shuffle(cards).map(function(card) {
+    return generateCard(card);
+});
+cardHTML .join('');
+}
 
+ let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
+/** const cards = document.querySelectorAll('.deck-card');
+console.log(cards); */
+
+
+/**  This has an error.
+function generateCard(card) {
+    return '<li class="card"><i class= "fa $(card)"></i></li>';
+}
+*/
+match = 0;
+moves = 0;
  /**function card.open() {
 console.log('I was clicked!');
 console.log(this);
@@ -12,8 +28,8 @@ console.log(this);
 
 
  
-	cards.forEAch(card => card.addEventListener('click',deck.card.open )) 
-		console.log("hello, I-m a card!");
+	/**cards.forEAch(card => card.addEventListener('click',deck.card.open )) 
+		console.log("hello, I-m a card!"); */
 	
 /*
  * Display the cards on the page
@@ -37,6 +53,28 @@ function shuffle(array) {
     return array;
 }
 
+//open only 2 cards at a time. after less than a second, flip cards back if not matched
+var allCards = document.querySelectorAll('.card');
+var openCards =[];
+
+allCards.forEach(function(card) {
+    card.addEventListener('click', function(e) {        
+     openCards.push(card);
+card.classList.add('open', 'show');
+
+console.log('Open Cards:', openCards.length);
+
+  
+ if (openCards.length === 2) {
+    setTimeout(function() {
+openCards.forEach(function(card) {
+    card.classList.remove('open', 'show');
+});
+openCards = [];
+  }, 600); 
+}
+});
+});
 
 /*
  * set up the event listener for a card. If a card is clicked:
