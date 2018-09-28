@@ -1,11 +1,36 @@
 /*
  * Create a list that holds all of your cards
- */
+/* inspired by Mike Wales webinar at https://www.youtube.com/watch?v=_rUH-sEs68Y */
+function initGame() {
+    var deck = document.querySelector('.deck');
+    var cardHTML = shuffle(cards).map(function(card) {
+    return generateCard(card);
+});
+cardHTML .join('');
+}
+
+ let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
+/** const cards = document.querySelectorAll('.deck-card');
+console.log(cards); */
 
 
-  
+/** 
+function generateCard(card) {
+    return '<li class="card" data-card= "${card}"><i class= "fa $(card)"></i></li>';
+}
+*/
+match = 0;
+moves = 0;
+ /**function card.open() {
+console.log('I was clicked!');
+console.log(this);
+ } */
+
 
  
+	/**cards.forEAch(card => card.addEventListener('click',deck.card.open )) 
+		console.log("hello, I-m a card!"); */
+	
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -28,104 +53,46 @@ function shuffle(array) {
     return array;
 }
 
+/** I watched Yahya's tutorial, especially the part on matching cards, at : https://www.youtube.com/watch?v=G8J13lmApkQ */
+let icons =[];
+for(let i =0; i < icons.length; i++) {
+    const card = document.createElement("li");
+    card.classList.add("card");
+    card.innerHTML = `<i class= "${icons[i]}">`;
+    cardsContainer.appendChild(card);
 
-//open only 2 cards at a time. after 1 second, flip cards back if not matched
+}
+
+//open only 2 cards at a time. after less than a second, flip cards back if not matched
 var allCards = document.querySelectorAll('.card');
 var openCards =[];
-
+ //add click Event
 allCards.forEach(function(card) {
     card.addEventListener('click', function(e) {        
-     openCards.push(card);
 card.classList.add('open', 'show');
-
+openCards.push(this);
 console.log('Open Cards:', openCards.length);
 
-if (openCards.length == 2) {
+  
+ if (openCards.length === 2) {
+     if (openCards[0]. dataset.card === openCards[1].dataset.card) {
+         openCards[0].classList.add('match');
+         openCards[0].classList.add('open');
+         openCards[0].classList.add('show');
+
+         openCards[0].classList.add('match');
+         openCards[0].classList.add('open');
+         openCards[0].classList.add('show');
+     }
+
+
+/** If there is no match, hide the cards */
     setTimeout(function() {
 openCards.forEach(function(card) {
     card.classList.remove('open', 'show');
 });
 openCards = [];
-  }, 1000); 
-
-
-
-
-//hide cards if they do not match
-       
-            
-                
-             }
-            });
-            });
-
-    
-
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
- //starts the timer
-
-
-
-//increase move count
-
-//event handler for when card is clicked
-
-//start game if needed
-
-//cards flipped
-
-
-
-
-//create individual card element
-
-//populate cards in DOM
-
-//reset game
-
-
-//initialize stars display
-
-//reduce star rating
-
-
-
-
-
-
-//instruction from udacity
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
-
-//the game is won as all 16 cards are matched!
-
-
-
-//run this when game was won
-
-
-    //stop the timer
-
-    //show the prompt
-
+  }, 600); 
+}
+});
+});
