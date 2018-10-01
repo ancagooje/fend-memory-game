@@ -10,9 +10,7 @@ cardHTML .join('');
 }
 
  let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
-/** const cards = document.querySelectorAll('.deck-card');
-console.log(cards); */
-
+ 
 
 /** 
 function generateCard(card) {
@@ -21,23 +19,8 @@ function generateCard(card) {
 */
 match = 0;
 moves = 0;
- /**function card.open() {
-console.log('I was clicked!');
-console.log(this);
- } */
-
-
+  
  
-	/**cards.forEAch(card => card.addEventListener('click',deck.card.open )) 
-		console.log("hello, I-m a card!"); */
-	
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -62,10 +45,18 @@ for(let i =0; i < icons.length; i++) {
     cardsContainer.appendChild(card);
 
 }
+deck.addEventListener('click', event => {
+    const clickTarget = event.target;
+    if (
+        clickTarget.classList.contains('card') &&
+        openCards.length < 2 &&
+        openCards.includes(clickTarget)
+    ) { }
+
 
 //open only 2 cards at a time. after less than a second, flip cards back if not matched
-var allCards = document.querySelectorAll('.card');
-var openCards =[];
+let allCards = document.querySelectorAll('.card');
+let openCards =[];
  //add click Event
 allCards.forEach(function(card) {
     card.addEventListener('click', function(e) {        
@@ -73,26 +64,19 @@ card.classList.add('open', 'show');
 openCards.push(this);
 console.log('Open Cards:', openCards.length);
 
-  
- if (openCards.length === 2) {
-     if (openCards[0]. dataset.card === openCards[1].dataset.card) {
-         openCards[0].classList.add('match');
-         openCards[0].classList.add('open');
-         openCards[0].classList.add('show');
-
-         openCards[0].classList.add('match');
-         openCards[0].classList.add('open');
-         openCards[0].classList.add('show');
-     }
-
-
-/** If there is no match, hide the cards */
-    setTimeout(function() {
-openCards.forEach(function(card) {
-    card.classList.remove('open', 'show');
-});
-openCards = [];
-  }, 600); 
+/** I read Matthew Cranford's tutorial on matching cards. I am still getting an error regarding last line */
+function checkForMatch() {
+    if (openCards[0].firstElementChild.className===
+       openCards[1].firstElementChild.className)
+       {
+           openCards[0].classList.open('Match!');
+           openCards[1].classList.open('Match!');
+       } else {
+          setTimeout(() => {
+          openCards(openCards[0]);
+          openCards(openCards[1]);
+           openCards = [];
+       }, 800);
 }
-});
-});
+  if (openCards.length === 2) {
+    checkForMatch(clickTarget);}
