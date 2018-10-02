@@ -69,7 +69,30 @@ console.log('Open Cards:', openCards.length);
     })
 })
 
-/** I read Matthew Cranford's tutorial on matching cards. I am still getting an error regarding last line */
+/**  Function for adding moves*/
+function addMove() {
+    moves++;
+    const movesText = document.querySelector('.moves');
+    movesText.innerHTML = moves;
+}
+
+/** Function to check the score.  */
+if (moves === 16 || moves === 24)
+{ removeStar ();
+}
+    }
+     function removeStar() {
+         const starList = document.querySelectorAll('.stars li');
+         for (star of starList) {
+             star.style.display = 'none';
+             break;
+
+         }
+     }
+removeStar();
+removeStar();
+
+/** I read Matthew Cranford's tutorial on matching cards.  */
 function checkForMatch() {
     if (openCards[0].firstElementChild.className===
        openCards[1].firstElementChild.className)
