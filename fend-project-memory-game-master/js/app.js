@@ -55,7 +55,7 @@ deck.addEventListener('click', event => {
 
     if (openCards.length === 2) {
         checkForMatch(clickTarget);}
-
+})
 
 //open only 2 cards at a time. after less than a second, flip cards back if not matched
 let allCards = document.querySelectorAll('.card');
@@ -66,6 +66,8 @@ allCards.forEach(function(card) {
 card.classList.add('open', 'show');
 openCards.push(this);
 console.log('Open Cards:', openCards.length);
+    })
+})
 
 /** I read Matthew Cranford's tutorial on matching cards. I am still getting an error regarding last line */
 function checkForMatch() {
@@ -80,4 +82,4 @@ function checkForMatch() {
           openCards(openCards[1]);
            openCards = [];
        }, 800);
-    }
+    }}
