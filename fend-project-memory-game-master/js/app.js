@@ -15,6 +15,7 @@ cardHTML .join('');
 match = 0;
 moves = 0;
   
+/** I read this article about the toggle function: https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp */
 function toggleCard(card) {
     card.classList.toggle('open');
     card.classList.toggle('show');
