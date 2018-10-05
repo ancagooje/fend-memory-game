@@ -8,6 +8,13 @@ function initGame() {
 });
 cardHTML .join('');
 }
+function generateCards() {
+    let card_classes = shuffle(cardClassesList);
+    for (let index = 0; index < 16; index++); {
+        let new_elm = createCard(card_class);
+        deck.appendChild(new_elm);
+    }
+}
 
  let cards = ['heart', 'heart', 'leaf', 'leaf', 'circle', 'circle', 'anchor', 'anchor', 'plane', 'plane', 'car', 'car', 'star', 'star', 'diamond', 'diamond'],
  
