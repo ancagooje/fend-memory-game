@@ -133,6 +133,7 @@ console.log(starCount);
 return starCount;
 }
  
+ /** i read this article on timing events with setInterval() https://www.w3schools.com/js/js_timing.asp */
 function startClock() {
 	clockId = setInterval(() => {
 	time++;
