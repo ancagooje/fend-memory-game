@@ -24,7 +24,7 @@ function shuffle(array) {
     return array;
 }
 
-	/** I read Matthew Cranford's tutorial on toggling cards:https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-cards/ */
+/** I read Matthew Cranford's tutorial on toggling cards:https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-cards/ */
 	deck.addEventListener('click', event => {
 		const clickTarget = event.target;
 		if (clockOff) {
@@ -157,15 +157,15 @@ clearInterval(clockId);
 }
 /** The modal for displaying the congratulations message at the end of the game */
 function toggleModal(){
-	const modal = document.querySelector('.modal_background');
+	const modal = document.querySelector('.modal__background');
 	modal.classList.toggle('hide');
 }
 
 function writeModalStats() {
-    const timeStat = document.querySelector('.modal_time');
+    const timeStat = document.querySelector('.modal__time');
     const clockTime = document.querySelector('.clock').innerHTML;
-    const movesStat = document.querySelector('.modal_moves');
-    const starsStat = document.querySelector('.modal_stars');
+    const movesStat = document.querySelector('.modal__moves');
+    const starsStat = document.querySelector('.modal__stars');
     const stars = getStars();
   
     timeStat.innerHTML = `Time = ${clockTime}`;
